@@ -20,17 +20,17 @@
 Feature: Parametrer un nouvel ordinateur au sein de la startup
 	En tant que Responsable 
 	Je veux changer le nom d'un ordinateur avec le nom du nouveau stagiaire
-	Afin de pouvoir mettre à disposition cette ordinateur à ce nouveau stagiaire
+	Afin de pouvoir mettre à disposition cet ordinateur à ce nouveau stagiaire
 	
   @tag1
   Scenario Outline: Changer le nom de l'ordinateur
   	Given la modification d'un ordinateur comprenant le nouveau nom <nomOrdi> du stagiaire
   	When le responsable la valide 
-  	Then le nouveau de l'ordinateur <nouveauNomOrdi> doit être modifier
+  	Then le nouveau nom de l'ordinateur <nouveauNomOrdi> doit être modifier
 
     Examples: 
       | nomOrdi 	 | nouveauNomOrdi  |
       | "ordiTiti" |    "ordiTiti" 	 |
-      | "ordiTata" |    "ordiTutu"   |
+      | "ordiTata" |    "ordiTata"   |
 
   

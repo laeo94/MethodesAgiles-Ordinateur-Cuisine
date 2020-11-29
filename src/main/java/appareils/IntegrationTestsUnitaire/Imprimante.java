@@ -30,10 +30,14 @@ public class Imprimante {
 		}
 	}
 
+	public String nomComplet() {
+		return this.nom + "/" + this.marque;
+	}
+
 	public String afficherNomOrdinateurs() {
 		String nomOrdinateurs;
 		if (listOrdi.size() == 0) {
-			nomOrdinateurs = "Aucun ordinateur connect�";
+			nomOrdinateurs = "Aucun ordinateur connecte";
 		} else {
 			nomOrdinateurs = "";
 			for (Ordinateur ordi : listOrdi) {

@@ -7,10 +7,12 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class ParametrerOrdinateurTest {
-	private Ordinateur ordinateur = new Ordinateur("ordiToto", "Dell", null);
+	private Ordinateur ordinateur;
 
 	@Given("la modification d'un ordinateur comprenant le nouveau nom {string} du stagiaire")
 	public void la_modification_d_un_ordinateur_comprenant_le_nouveau_nom_du_stagiaire(String string) {
+		ordinateur = new Ordinateur("ordiToto", "Dell", null);
+
 		System.out.println("Le nouveau nom de l'ordinateur avec celui du nom du nouveau stagiaire : " + string);
 	}
 
@@ -19,10 +21,10 @@ public class ParametrerOrdinateurTest {
 		System.out.println("Le responsable valide ce nom pour l'attribution de l'ordinateur");
 	}
 
-	@Then("le nouveau de l'ordinateur {string} doit être modifier")
-	public void le_nouveau_de_l_ordinateur_doit_être_modifier(String string) {
+	@Then("le nouveau nom de l'ordinateur {string} doit être modifier")
+	public void le_nouveau_nom_de_l_ordinateur_doit_être_modifier(String string) {
 		assertEquals(string, ordinateur.changerNom(string));
-		System.out.println("Modification effectuée! L'ordinateur est nommé :"+string);
+		System.out.println("Modification effectuée! L'ordinateur est nommé :" + string);
 	}
 
 }
