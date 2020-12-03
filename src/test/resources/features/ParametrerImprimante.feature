@@ -1,5 +1,5 @@
 @tag
-Feature: Parametrer une nouvelle imprimante
+Feature: US_02 Parametrer une nouvelle imprimante
     En tant que Responsable 
     Je veux ajouter une nouvelle imprimante au sein du réseau
     Afin de pouvoir mettre à disposition cette imprimante à l'équipe

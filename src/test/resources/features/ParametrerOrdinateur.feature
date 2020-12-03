@@ -17,7 +17,7 @@
 ## (Comments)
 #Sample Feature Definition Template
 @tag
-Feature: Parametrer un nouvel ordinateur au sein de la startup
+Feature: US_01 Parametrer un nouvel ordinateur au sein de la startup
 	En tant que Responsable 
 	Je veux changer le nom d'un ordinateur avec le nom du nouveau stagiaire
 	Afin de pouvoir mettre à disposition cet ordinateur à ce nouveau stagiaire
