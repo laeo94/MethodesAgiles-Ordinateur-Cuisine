@@ -11,6 +11,7 @@ public class Ordinateur {
 	private String nom = "Nom inconnu";
 	private String marque = "Marque inconnu";
 	private Imprimante imprimante;
+	private String menu = "";
 
 	/**
 	 * Constructeur d'objets de classe Ordinateur
@@ -54,4 +55,13 @@ public class Ordinateur {
 	public String nomComplet() {
 		return this.nom + " " + this.imprimante.getNom();
 	}
+
+	public String getMenu() {
+		return menu;
+	}
+
+	public void setMenu(String menu) {
+		this.menu = menu;
+	}
+	
 }
