@@ -31,5 +31,9 @@ public class ImprimanteTest {
 	public void test() {
 		assertEquals(" ordiTiti ordiTata ordiToto", maisonImprimante.afficherNomOrdinateurs());
 	}
+	@Test
+	public void test2() {
+		assertEquals("imprimante123/HP", maisonImprimante.nomComplet());
+	}
 
 }

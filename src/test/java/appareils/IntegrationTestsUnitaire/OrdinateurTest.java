@@ -13,7 +13,6 @@ public class OrdinateurTest {
 	public void setUp() throws Exception {
 		monImprimante = new Imprimante("imprimante123", "HP");
 		monOrdinateur = new Ordinateur("ordiToto", "Dell", monImprimante);
-		// monOrdinateur.nomComplet();
 	}
 
 	@After
@@ -22,7 +21,6 @@ public class OrdinateurTest {
 
 	@Test
 	public void test() {
-		// assertEquals("Toto imprimante123", monOrdinateur.nomComplet());
 		assertEquals("ordiTiti", monOrdinateur.changerNom("ordiTiti"));
 	}
 
