@@ -11,8 +11,8 @@ public class OrdinateurTest {
 
 	@Before
 	public void setUp() throws Exception {
-		monImprimante = new Imprimante("imprimante123", "HP");
-		monOrdinateur = new Ordinateur("ordiToto", "Dell", monImprimante);
+		monImprimante = Imprimante.getInstance("impDauphine","HP");
+		monOrdinateur = new Ordinateur("ordiToto", "Dell");
 	}
 
 	@After
@@ -22,6 +22,9 @@ public class OrdinateurTest {
 	@Test
 	public void test() {
 		assertEquals("ordiTiti", monOrdinateur.changerNom("ordiTiti"));
+		monImprimante.addOrdinateur(monOrdinateur);
+		assertTrue(monImprimante.copyOrdi().contains(monOrdinateur));
+		assertEquals("impDauphine", monOrdinateur.getImprimante().getNom());
 	}
 
 }

@@ -2,6 +2,8 @@ package appareils.IntegrationTestsUnitaire;
 
 import java.util.ArrayList;
 
+import cuisine.IntegrationTestsUnitaire.Chef;
+
 /**
  * Décrivez votre classe Imprimante ici.
  *
@@ -9,6 +11,7 @@ import java.util.ArrayList;
  * @version (un numéro de version ou une date)
  */
 public class Imprimante {
+	private static Imprimante instanceImp = null;
 	// variables d'instance - remplacez l'exemple qui suit par le votre
 	private String nom = "Nom inconnu";
 	private String marque = "Marque inconnue";
@@ -17,13 +20,22 @@ public class Imprimante {
 	/**
 	 * Constructeur d'objets de classe Imprimante
 	 */
-	public Imprimante(String nom, String marque) {
+	private Imprimante(String nom, String marque) {
 		// initialisation des variables d'instance
 		this.nom = nom;
 		this.marque = marque;
 		this.listOrdi = new ArrayList<Ordinateur>();
 	}
 
+	public static Imprimante getInstance (String nom,String marque) {
+		if(instanceImp==null) instanceImp = new Imprimante(nom,marque);
+		return instanceImp;
+	}
+	
+	public String imprimer (String menu) {
+		return menu;
+	}
+	
 	public void addOrdinateur(Ordinateur ordinateur) {
 		if (ordinateur.getImprimante().equals(this)) {
 			listOrdi.add(ordinateur);
@@ -47,14 +59,14 @@ public class Imprimante {
 		return nomOrdinateurs;
 	}
 
-	public void setNom(String nom) {
+	/*public void setNom(String nom) {
 		this.nom = nom;
 	}
 
 	public void setMarque(String marque) {
 		this.marque = marque;
 	}
-
+*/
 	public String getNom() {
 		return extracted();
 	}
@@ -65,6 +77,14 @@ public class Imprimante {
 
 	public String getMarque() {
 		return this.marque;
+	}
+	
+	public ArrayList<Ordinateur> copyOrdi() {
+		ArrayList<Ordinateur> c = new ArrayList<Ordinateur>();
+		for (int i = 0; i < this.listOrdi.size(); i++) {
+			c.add(this.listOrdi.get(i));
+		}
+		return c;
 	}
 
 }

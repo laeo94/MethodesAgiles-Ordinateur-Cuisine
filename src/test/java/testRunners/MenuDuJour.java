@@ -1,7 +1,6 @@
 package testRunners;
 
 import static org.junit.Assert.assertEquals;
-
 import appareils.IntegrationTestsUnitaire.Ordinateur;
 import cuisine.IntegrationTestsUnitaire.Chef;
 import cuisine.IntegrationTestsUnitaire.Cuisine;
@@ -13,7 +12,7 @@ public class MenuDuJour {
 	private Cuisine cuisine = new Cuisine(150, "Dauphine");
 	private Chef chef;
 	private Ordinateur ordiChef;
-
+	/*1er user storie*/
 	@Given("En tant que chef {string} de cuisine je veux pouvoir rédiger le menu du jour")
 	public void en_tant_que_chef_de_cuisine_je_veux_pouvoir_rédiger_le_menu_du_jour(String string) {
 		chef = new Chef(string, cuisine, 3);
@@ -22,7 +21,7 @@ public class MenuDuJour {
 
 	@When("j écris sur l ordinateur le {string}")
 	public void j_écris_sur_l_ordinateur_le(String string) {
-		ordiChef = new Ordinateur(chef.getNom(), "Dell", null);
+		ordiChef = new Ordinateur(chef.getNom(), "Dell");
 		ordiChef.setMenu(chef.getNom() + ": " + string);
 		System.out.println("Le menu du jour :" + string);
 	}
@@ -32,5 +31,26 @@ public class MenuDuJour {
 		assertEquals(string, ordiChef.getMenu());
 		assertEquals(string2, chef.getNom());
 	}
+	/*2eme user storie*/
+	
+	@Given("En tant que chef {string} je souhaite imprimer mon menu du jour établi sur mon ordinateur {string}")
+	public void en_tant_que_chef_je_souhaite_imprimer_mon_menu_du_jour_établi_sur_mon_ordinateur_nom_ordi(String string,String string2) {
+		assertEquals(string,string2);
+		chef = new Chef(string, cuisine, 3);
+		ordiChef = new Ordinateur(chef.getNom(), "Dell");
+	}
 
+	@When("je demande d imprimer le menu {string}")
+	public void je_demande_d_imprimer_le_menu(String string) {
+	 ordiChef.setMenu(string);
+	 System.out.println("Je souhaite imprimer le menu :"+string);
+	 assertEquals(string,ordiChef.getMenu());
+	  System.out.println("Le menu dans ordinateur "+ordiChef.getMenu());
+	}
+	
+	@Then("le {string} s imprime")
+	public void le_s_imprime(String string) {
+	 assertEquals(string,ordiChef.getImprimante().imprimer(string));
+	 System.out.println("Le menu : "+ string+" a été imprimé");
+	}
 }

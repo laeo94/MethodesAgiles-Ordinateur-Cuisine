@@ -12,15 +12,14 @@ public class Ordinateur {
 	private String marque = "Marque inconnu";
 	private Imprimante imprimante;
 	private String menu = "";
-
 	/**
 	 * Constructeur d'objets de classe Ordinateur
 	 */
-	public Ordinateur(String nom, String marque, Imprimante imp) {
+	public Ordinateur(String nom, String marque) {
 		// initialisation des variables d'instance
 		this.nom = nom;
 		this.marque = marque;
-		this.imprimante = imp;
+		this.imprimante = Imprimante.getInstance("impDauphine", "HP");
 	}
 
 	public String getNom() {
@@ -63,5 +62,4 @@ public class Ordinateur {
 	public void setMenu(String menu) {
 		this.menu = menu;
 	}
-	
 }

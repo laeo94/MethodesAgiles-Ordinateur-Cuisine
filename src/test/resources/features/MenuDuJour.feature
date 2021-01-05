@@ -12,3 +12,14 @@ Feature: US_09 Rédaction du menu du jour
       | "Toto" 	 | "burger frites" | "Toto: burger frites" |"Toto"   |
       | "Tata" 	 | "poulet frites" | "Tata: poulet frites" |"Tata"   |
 
+  @tag2
+  Scenario Outline: Imprimer un menu
+	Given En tant que chef <nomChef> je souhaite imprimer mon menu du jour établi sur mon ordinateur <nomOrdi>
+	When je demande d imprimer le menu <monMenu>
+	Then le <menu> s imprime
+	
+	Examples: 
+      | nomChef  | nomOrdi 	 | monMenu  					   | menu   						  |
+      | "Toto" 	 | "Toto"    | "Toto: burger frites" |"Toto: burger frites" |
+      | "Tata" 	 | "Tata"    | "Tata: poulet frites" |"Tata: poulet frites" |
+ 	

@@ -8,32 +8,30 @@ import org.junit.Test;
 
 public class ImprimanteTest {
 	private Imprimante maisonImprimante;
-	private Ordinateur monOrdinateur;
-	private Ordinateur ordinateurSoeur;
-	private Ordinateur ordinateurPapa;
-
-	@Before
-	public void setUp() throws Exception {
-		maisonImprimante = new Imprimante("imprimante123", "HP");
-		monOrdinateur = new Ordinateur("ordiTiti", "Dell", maisonImprimante);
-		ordinateurSoeur = new Ordinateur("ordiTata", "Apple", maisonImprimante);
-		ordinateurPapa = new Ordinateur("ordiToto", "Asus", maisonImprimante);
-		maisonImprimante.addOrdinateur(monOrdinateur);
-		maisonImprimante.addOrdinateur(ordinateurSoeur);
-		maisonImprimante.addOrdinateur(ordinateurPapa);
-	}
-
-	@After
-	public void tearDown() throws Exception {
-	}
-
-	@Test
-	public void test() {
-		assertEquals(" ordiTiti ordiTata ordiToto", maisonImprimante.afficherNomOrdinateurs());
-	}
-	@Test
-	public void test2() {
-		assertEquals("imprimante123/HP", maisonImprimante.nomComplet());
-	}
+    private Ordinateur monOrdinateur;
+    private Ordinateur ordinateurSoeur;
+    private Ordinateur ordinateurPapa;
+    @Before
+    public void setUp() throws Exception {
+        maisonImprimante = Imprimante.getInstance("impDauphine", "HP");
+        monOrdinateur = new Ordinateur("ordiTiti", "Dell");
+        ordinateurSoeur = new Ordinateur("ordiTata", "Apple");
+        ordinateurPapa = new Ordinateur("ordiToto", "Asus");
+        maisonImprimante.addOrdinateur(monOrdinateur);
+        maisonImprimante.addOrdinateur(ordinateurSoeur);
+        maisonImprimante.addOrdinateur(ordinateurPapa);
+    }
+    @After
+    public void tearDown() throws Exception {
+    }
+    @Test
+    public void test() {
+        assertEquals(" ordiTiti ordiTata ordiToto", maisonImprimante.afficherNomOrdinateurs());
+    }
+    @Test
+    public void test2() {
+        assertEquals("impDauphine/HP", maisonImprimante.nomComplet());
+    }
+ 
 
 }

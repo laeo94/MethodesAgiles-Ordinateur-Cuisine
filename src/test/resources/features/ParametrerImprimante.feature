@@ -11,9 +11,9 @@ Feature: US_02 Parametrer une nouvelle imprimante
       Then l'imprimante affiche son <nomcomplet>
       
     Examples: 
-      | nom    | marque      | nomcomplet   |
-      | "Imp1" |    "HP"  |  "Imp1/HP"      |
-      | "Imp2" |"Samsung" |  "Imp2/Samsung" |
+      | nom    				| marque      | 		nomcomplet  			 |
+      | "impDauphine" |    "HP"  		|  "impDauphine/HP"      |
+    
       
 	@tag2
   Scenario Outline: Ajouter un ordinateur à l'imprimante
@@ -23,7 +23,7 @@ Feature: US_02 Parametrer une nouvelle imprimante
       
     Examples: 
       | nom        | marque   |    ordiconnectes       |
-      | "ordiToto" |    "Dell"|  " ordiTata ordiToto"  |
-      | "ordiTiti" |    "Asus"|  " ordiTata ordiTiti"  |
+      | "ordiToto" |    "Dell"|  " ordiToto" 					 |
+      | "ordiTiti" |    "Asus"|  " ordiToto ordiTiti"  |
       
       
