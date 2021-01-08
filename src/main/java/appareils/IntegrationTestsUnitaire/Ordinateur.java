@@ -1,5 +1,7 @@
 package appareils.IntegrationTestsUnitaire;
 
+import cuisine.IntegrationTestsUnitaire.Chef;
+
 /**
  * Décrivez votre classe Ordinateur ici.
  *
@@ -7,10 +9,10 @@ package appareils.IntegrationTestsUnitaire;
  * @version (un numéro de version ou une date)
  */
 public class Ordinateur {
-	// variables d'instance - remplacez l'exemple qui suit par le vôtre
 	private String nom = "Nom inconnu";
 	private String marque = "Marque inconnu";
 	private Imprimante imprimante;
+	private Chef chef;
 	private String menu = "";
 
 	/**
@@ -64,4 +66,11 @@ public class Ordinateur {
 		this.menu = menu;
 	}
 
+	public Chef getChef() {
+		return chef;
+	}
+
+	public void setChef(Chef chef) {
+		this.chef = chef;
+	}
 }

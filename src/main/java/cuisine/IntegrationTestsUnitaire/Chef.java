@@ -1,10 +1,13 @@
 package cuisine.IntegrationTestsUnitaire;
 
+import appareils.IntegrationTestsUnitaire.Ordinateur;
+
 public class Chef {
 	private String nom;
 	private int nbEtoiles;
 	private Cuisine maCuisine;
 	private boolean avoir = false;
+	private Ordinateur ordi;
 
 	public Chef(String n, Cuisine c, int nbEts) {
 		this.nom = n;
@@ -74,5 +77,13 @@ public class Chef {
 		if (nom instanceof String)
 			return true;
 		return false;
+	}
+
+	public Ordinateur getOrdi() {
+		return ordi;
+	}
+
+	public void setOrdi(Ordinateur ordi) {
+		this.ordi = ordi;
 	}
 }

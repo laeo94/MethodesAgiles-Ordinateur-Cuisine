@@ -37,13 +37,15 @@ public class MenuDuJour {
 		assertEquals(string, ordiChef.getMenu());
 		assertEquals(string2, chef.getNom());
 	}
-	
+
 	/* 2eme user storie */
 	@Given("En tant que chef {string} je souhaite imprimer mon menu du jour établi sur mon ordinateur {string}")
 	public void en_tant_que_chef_je_souhaite_imprimer_mon_menu_du_jour_établi_sur_mon_ordinateur_nom_ordi(String string,
 			String string2) {
 		chef = new Chef(string, cuisine, 3);
 		ordiChef = new Ordinateur(string, "Dell", imp);
+		chef.setOrdi(ordiChef);
+		ordiChef.setChef(chef);
 		assertEquals(string, string2);
 		if (ordiChef.getImprimante().getEtat() instanceof EtatImprimanteEteint)
 			ordiChef.getImprimante().changerEtat();
