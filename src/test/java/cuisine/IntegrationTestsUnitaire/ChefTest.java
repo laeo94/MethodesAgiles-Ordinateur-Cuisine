@@ -1,13 +1,13 @@
 package cuisine.IntegrationTestsUnitaire;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
 public class ChefTest {
-	
+
 	private Chef toto;
 	private Chef titi;
 	private Chef tata;
@@ -16,41 +16,37 @@ public class ChefTest {
 
 	@Before
 	public void setUp() throws Exception {
-		c1 = new Cuisine(30,"japonnaise");
-		c2 = new Cuisine(40, "americaine");
+		c1 = new Cuisine(30, "japonnaise", new AffichageUnChef());
+		c2 = new Cuisine(40, "americaine", new AffichageUnChef());
 		toto = new Chef("toto", c1, 3);
 		titi = new Chef("titi", c2, 5);
 	}
-	
+
 	@Test
-	public void testSetNom() 
-	{
+	public void testSetNom() {
 		toto.setNom("TOTO");
 		assertEquals("TOTO", toto.getNom());
 	}
 
 	@Test
-	public void testSetNbEtoiles() 
-	{
+	public void testSetNbEtoiles() {
 		toto.setNbEtoiles(5);
 		assertEquals(5, toto.getNbEtoiles());
 	}
-	
+
 	@Test
-	public void testSetCuisine()
-	{
+	public void testSetCuisine() {
 		titi.setCuisine(c1);
 		assertEquals(titi.getCuisine(), c1);
 		assertTrue(c1.copyOfChefs().contains(titi));
 		assertTrue(titi.isAvoir());
 	}
-	
+
 	@Test
-	public void testQuitterCuisine()
-	{
-	    titi.quitterCuisine();
-	    assertEquals(titi.getCuisine(), null);
-	    assertTrue(!titi.isAvoir());
+	public void testQuitterCuisine() {
+		titi.quitterCuisine();
+		assertEquals(titi.getCuisine(), null);
+		assertTrue(!titi.isAvoir());
 	}
 
 }

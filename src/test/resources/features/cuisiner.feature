@@ -24,3 +24,11 @@ Feature: Recrutement
     When je quitte cuisine
     Then je n apparais plus dans la liste chefs de la cuisine que j ai quitte
     And je n appartiens plus a aucune cuisine
+    
+  Scenario: En tant que Responsable, je souhaite pouvoir recuperer la liste des chefs individuellement
+   Given Je suis un responsable d une cuisine
+   When je recupere la liste
+   Then la liste des chefs s affiche
+   
+   
+   

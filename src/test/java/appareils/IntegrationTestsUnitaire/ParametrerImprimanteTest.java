@@ -30,7 +30,7 @@ public class ParametrerImprimanteTest {
 	@Given("L'ajout de l'ordinateur de {string} et de la {string} à l'imprimante")
 	public void l_ajout_de_l_ordinateur_de_et_de_la_à_l_imprimante(String string, String string2) {
 		imprimante = Imprimante.getInstance("", "");
-		Ordinateur ordiToto = new Ordinateur(string, string2);
+		Ordinateur ordiToto = new Ordinateur(string, string2, imprimante);
 		imprimante.addOrdinateur(ordiToto);
 
 	}
@@ -42,7 +42,7 @@ public class ParametrerImprimanteTest {
 
 	@Then("l'imprimante affiche sa liste des ordinateurs connectés {string}")
 	public void l_imprimante_affiche_sa_liste_des_ordinateurs_connectés_ordiconnectes(String string) {
-		//imprimante = Imprimante.getInstance("impDauphine", "HP");
+		// imprimante = Imprimante.getInstance("impDauphine", "HP");
 		assertEquals(string, imprimante.afficherNomOrdinateurs());
 	}
 }

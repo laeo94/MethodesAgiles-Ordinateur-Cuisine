@@ -2,8 +2,6 @@ package appareils.IntegrationTestsUnitaire;
 
 import java.util.ArrayList;
 
-import cuisine.IntegrationTestsUnitaire.Chef;
-
 /**
  * Décrivez votre classe Imprimante ici.
  *
@@ -16,6 +14,7 @@ public class Imprimante {
 	private String nom = "Nom inconnu";
 	private String marque = "Marque inconnue";
 	private ArrayList<Ordinateur> listOrdi;
+	private EtatImprimante etat;
 
 	/**
 	 * Constructeur d'objets de classe Imprimante
@@ -25,17 +24,29 @@ public class Imprimante {
 		this.nom = nom;
 		this.marque = marque;
 		this.listOrdi = new ArrayList<Ordinateur>();
+		this.etat = new EtatImprimanteEteint(this);
 	}
 
-	public static Imprimante getInstance (String nom,String marque) {
-		if(instanceImp==null) instanceImp = new Imprimante(nom,marque);
+	public static Imprimante getInstance(String nom, String marque) {
+		if (instanceImp == null)
+			instanceImp = new Imprimante(nom, marque);
 		return instanceImp;
 	}
-	
-	public String imprimer (String menu) {
-		return menu;
+
+	public String imprimer(String menu) {
+		if (this.etat instanceof EtatImprimanteAllume)
+			return menu;
+		return "L'imprimante est eteint !";
 	}
-	
+
+	public void changerEtat() {
+		etat = etat.etatsuivant();
+	}
+
+	public EtatImprimante getEtat() {
+		return etat;
+	}
+
 	public void addOrdinateur(Ordinateur ordinateur) {
 		if (ordinateur.getImprimante().equals(this)) {
 			listOrdi.add(ordinateur);
@@ -59,14 +70,11 @@ public class Imprimante {
 		return nomOrdinateurs;
 	}
 
-	/*public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public void setMarque(String marque) {
-		this.marque = marque;
-	}
-*/
+	/*
+	 * public void setNom(String nom) { this.nom = nom; }
+	 * 
+	 * public void setMarque(String marque) { this.marque = marque; }
+	 */
 	public String getNom() {
 		return extracted();
 	}
@@ -78,7 +86,7 @@ public class Imprimante {
 	public String getMarque() {
 		return this.marque;
 	}
-	
+
 	public ArrayList<Ordinateur> copyOrdi() {
 		ArrayList<Ordinateur> c = new ArrayList<Ordinateur>();
 		for (int i = 0; i < this.listOrdi.size(); i++) {

@@ -1,8 +1,8 @@
 package cuisine.IntegrationTestsUnitaire;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -16,8 +16,8 @@ public class CuisineTest {
 
 	@Before
 	public void setUp() {
-		c1 = new Cuisine(30, "americaine");
-		c2 = new Cuisine(20, "japonaise");
+		c1 = new Cuisine(30, "americaine", new AffichageUnChef());
+		c2 = new Cuisine(20, "japonaise", new AffichageUnChef());
 		toto = new Chef("toto", c1, 3);
 		titi = new Chef("titi", c2, 5);
 	}

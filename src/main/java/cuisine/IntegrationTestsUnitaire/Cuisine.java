@@ -6,10 +6,16 @@ public class Cuisine {
 	private int surface;
 	private String type;
 	private ArrayList<Chef> chefs = new ArrayList<Chef>();
+	private AffichageCuisine cuisine;
 
-	public Cuisine(int s, String t) {
+	public Cuisine(int s, String t, AffichageCuisine cuisine) {
 		this.surface = s;
 		this.type = t;
+		this.cuisine = cuisine;
+	}
+
+	public String afficher() {
+		return cuisine.afficher(chefs);
 	}
 
 	public int getSurface() {
@@ -110,5 +116,4 @@ public class Cuisine {
 		}
 		return false;
 	}
-
 }
