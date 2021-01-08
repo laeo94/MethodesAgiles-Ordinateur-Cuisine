@@ -1,6 +1,7 @@
 package cuisine.IntegrationTestsUnitaire;
 
-import static org.testng.Assert.assertEquals;
+
+import static org.junit.Assert.assertEquals;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -15,7 +16,6 @@ public class CuisinerSteps {
 	@Given("je suis une cuisine")
 	public void je_suis_une_cuisine() {
 		c1 = new Cuisine(30, "americaine", new AffichageUnChef());
-		System.out.print(c1);
 	}
 
 	@When("je recrute un chef libre")
@@ -25,15 +25,15 @@ public class CuisinerSteps {
 		chef1.setNbEtoiles(2);
 		if (!chef1.isAvoir())
 			c1.ajouteMoiDansLaCuisine(chef1);
+		System.out.println(chef1.getNom() + " a été recruté  " + c1.getType());
 	}
 
 	@Then("le chef devra apparaitre dans ma liste de chefs")
 	public void le_chef_devra_apparaitre_dans_ma_liste_de_chefs() {
-
 		if (c1.verifierPresence(chef1)) {
-			System.out.println("test passe");
+			System.out.println("le chef recruté a bien été ajouté dans la la cuisine ");
 		} else {
-			System.out.println("test ne passe pas ");
+			System.out.println("le chef recruté n'a pas été ajouté dans la cuisine ");
 		}
 	}
 
@@ -62,9 +62,9 @@ public class CuisinerSteps {
 	@Then("le chef portant ce nom ne devrait pas apparaitre dans la liste de chefs")
 	public void le_chef_portant_ce_nom_ne_devrait_pas_apparaitre_dans_la_liste_de_chefs() {
 		if (!c1.verifierPresence(chef2)) {
-			System.out.println("test passe");
+			System.out.println("Le chef appartient à la liste des chefs ");
 		} else {
-			System.out.println("test ne passe pas ");
+			System.out.println("le chef n'appartient pas à la lise des chefs");
 		}
 	}
 
@@ -79,33 +79,36 @@ public class CuisinerSteps {
 
 	@Given("j appartiens a une cuisine")
 	public void j_appartiens_a_une_cuisine() {
-
 		if (c1.verifierPresence(chef2)) {
-			System.out.println("le chef " + chef2);
+			System.out.print("le chef ");
 		} else if (chef2.isAvoir()) {
-			System.out.println(" et ma cuisine est " + c1);
+			System.out.println("appartient à la cuisine  ");
 		} else {
-			System.out.println("Oupsi, je n'ai pas de cuisine !");
+			System.out.println("n'appartient pas à la cuisine");
 		}
 	}
 
 	@When("je quitte cuisine")
 	public void je_quitte_cuisine() {
 		chef2.quitterCuisine();
-		if (!chef2.isAvoir() && (chef2.getCuisine() == null)) {
+	}
+
+	@Then("je n apparais plus dans la liste chefs de la cuisine que j ai quitte")
+	public void je_n_apparais_plus_dans_la_liste_chefs_de_la_cuisine_que_j_ai_quitte() {
+		if (!chef2.isAvoir() ) {
 			System.out.println("J'ai quitté ma cuisine ");
 		} else {
 			System.out.println("Je n'ai pas quitté ma cuisine ");
 		}
 	}
 
-	@Then("je n apparais plus dans la liste chefs de la cuisine que j ai quitte")
-	public void je_n_apparais_plus_dans_la_liste_chefs_de_la_cuisine_que_j_ai_quitte() {
-
-	}
-
 	@Then("je n appartiens plus a aucune cuisine")
 	public void je_n_appartiens_plus_a_aucune_cuisine() {
+		if (chef2.getCuisine() == null) {
+			System.out.println("je n'ai plus de cuisine  ");
+		} else {
+			System.out.println("J'ai toujours une cuisine ");
+		}
 	}
 
 	// Test Pattern

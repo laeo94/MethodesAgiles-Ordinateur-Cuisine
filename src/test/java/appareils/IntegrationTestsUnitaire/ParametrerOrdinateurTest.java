@@ -12,7 +12,6 @@ public class ParametrerOrdinateurTest {
 	@Given("la modification d'un ordinateur comprenant le nouveau nom {string} du stagiaire")
 	public void la_modification_d_un_ordinateur_comprenant_le_nouveau_nom_du_stagiaire(String string) {
 		ordinateur = new Ordinateur("ordiToto", "Dell", null);
-
 		System.out.println("Le nouveau nom de l'ordinateur avec celui du nom du nouveau stagiaire : " + string);
 	}
 
