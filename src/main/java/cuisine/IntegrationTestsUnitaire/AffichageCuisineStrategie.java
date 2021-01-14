@@ -2,6 +2,6 @@ package cuisine.IntegrationTestsUnitaire;
 
 import java.util.ArrayList;
 
-public interface AffichageCuisine {
+public interface AffichageCuisineStrategie {
 	String afficher(ArrayList<Chef> chefs);
 }

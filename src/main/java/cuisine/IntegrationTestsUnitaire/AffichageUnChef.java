@@ -2,7 +2,7 @@ package cuisine.IntegrationTestsUnitaire;
 
 import java.util.ArrayList;
 
-public class AffichageUnChef implements AffichageCuisine {
+public class AffichageUnChef implements AffichageCuisineStrategie {
 
 	@Override
 	public String afficher(ArrayList<Chef> chefs) {

@@ -6,9 +6,9 @@ public class Cuisine {
 	private int surface;
 	private String type;
 	private ArrayList<Chef> chefs = new ArrayList<Chef>();
-	private AffichageCuisine cuisine;
+	private AffichageCuisineStrategie cuisine;
 
-	public Cuisine(int s, String t, AffichageCuisine cuisine) {
+	public Cuisine(int s, String t, AffichageCuisineStrategie cuisine) {
 		this.surface = s;
 		this.type = t;
 		this.cuisine = cuisine;
