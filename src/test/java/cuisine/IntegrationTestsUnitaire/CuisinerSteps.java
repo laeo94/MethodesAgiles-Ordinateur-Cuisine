@@ -1,6 +1,5 @@
 package cuisine.IntegrationTestsUnitaire;
 
-
 import static org.junit.Assert.assertEquals;
 
 import io.cucumber.java.en.Given;
@@ -95,7 +94,7 @@ public class CuisinerSteps {
 
 	@Then("je n apparais plus dans la liste chefs de la cuisine que j ai quitte")
 	public void je_n_apparais_plus_dans_la_liste_chefs_de_la_cuisine_que_j_ai_quitte() {
-		if (!chef2.isAvoir() ) {
+		if (!chef2.isAvoir()) {
 			System.out.println("J'ai quitté ma cuisine ");
 		} else {
 			System.out.println("Je n'ai pas quitté ma cuisine ");
@@ -114,7 +113,7 @@ public class CuisinerSteps {
 	// Test Pattern
 	@Given("Je suis un responsable d une cuisine")
 	public void je_suis_un_responsable_d_une_cuisine() {
-		c1 = new Cuisine(20, "americaine", new AffichageUnChef());
+		c1 = new Cuisine(20, "americaine", new AffichageDeuxChefs());
 		chef1 = new Chef();
 		chef1.setNom("Paul");
 		chef1.setNbEtoiles(2);
@@ -131,7 +130,7 @@ public class CuisinerSteps {
 
 	@Then("la liste des chefs s affiche")
 	public void la_liste_des_chefs_s_affiche() {
-		assertEquals("Paul\ntiti\n", c1.afficher());
+		assertEquals("Paul titi\n", c1.afficher());
 		System.out.println(c1.afficher());
 	}
 }

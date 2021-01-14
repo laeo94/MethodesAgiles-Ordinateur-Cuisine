@@ -95,4 +95,18 @@ public class Imprimante {
 		return c;
 	}
 
+	public boolean cleanOrdis() {
+		for (Ordinateur o : listOrdi) {
+			o.setImprimante(null);
+		}
+		this.listOrdi.clear();
+		return this.listOrdi.isEmpty();
+
+	}
+
+	public boolean suppOrdis(Ordinateur ordi) {
+		return this.listOrdi.remove(ordi);
+
+	}
+
 }
