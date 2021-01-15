@@ -61,7 +61,7 @@ public class CuisineTest {
 	@Test
 	public void testAjouterPersonne() {
 		coco = new Chef("coco", c2, 3);
-		c1.ajouterPersonne(coco);
+		c1.addChef(coco);
 		assertEquals(coco.getCuisine(), c1);
 		assertTrue(c1.copyOfChefs().contains(coco));
 		assertTrue(coco.isAvoir());

@@ -7,5 +7,5 @@ public abstract class EtatImprimante {
 		this.imp = imp;
 	}
 
-	public abstract EtatImprimante etatsuivant();
+	public abstract EtatImprimante etatSuivant();
 }

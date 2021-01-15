@@ -23,14 +23,14 @@ public class MenuDuJour {
 	@Given("En tant que chef {string} de cuisine je veux pouvoir rédiger le menu du jour")
 	public void en_tant_que_chef_de_cuisine_je_veux_pouvoir_rédiger_le_menu_du_jour(String string) {
 		chef = new Chef(string, cuisine, 3);
-		System.out.println(string + " souhaite rédiger son menu du jour");
+		//System.out.println(string + " souhaite rédiger son menu du jour");
 	}
 
 	@When("j écris sur l ordinateur le {string}")
 	public void j_écris_sur_l_ordinateur_le(String string) {
 		ordiChef = new Ordinateur(chef.getNom(), "Dell", imp);
 		ordiChef.setMenu(chef.getNom() + ": " + string);
-		System.out.println("Le menu du jour :" + string);
+		//System.out.println("Le menu du jour :" + string);
 	}
 
 	@Then("le {string} est enregistré sur l'ordinateur du chef {string}")
@@ -55,14 +55,14 @@ public class MenuDuJour {
 	@When("je demande d imprimer le menu {string}")
 	public void je_demande_d_imprimer_le_menu(String string) {
 		ordiChef.setMenu(string);
-		System.out.println("Je souhaite imprimer le menu :" + string);
+		//System.out.println("Je souhaite imprimer le menu :" + string);
 		assertEquals(string, ordiChef.getMenu());
-		System.out.println("Le menu dans ordinateur " + ordiChef.getMenu());
+		//System.out.println("Le menu dans ordinateur " + ordiChef.getMenu());
 	}
 
 	@Then("le {string} s imprime")
 	public void le_s_imprime(String string) {
 		assertEquals(string, ordiChef.getImprimante().imprimer(string));
-		System.out.println("Le menu : " + string + " a été imprimé");
+		//System.out.println("Le menu : " + string + " a été imprimé");
 	}
 }

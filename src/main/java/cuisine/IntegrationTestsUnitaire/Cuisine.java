@@ -6,16 +6,16 @@ public class Cuisine {
 	private int surface;
 	private String type;
 	private ArrayList<Chef> chefs = new ArrayList<Chef>();
-	private AffichageCuisineStrategie cuisine;
+	private AffichageCuisineStrategie maStrategieEnCuisine;
 
 	public Cuisine(int s, String t, AffichageCuisineStrategie cuisine) {
 		this.surface = s;
 		this.type = t;
-		this.cuisine = cuisine;
+		this.maStrategieEnCuisine = cuisine;
 	}
 
 	public String afficher() {
-		return cuisine.afficher(chefs);
+		return maStrategieEnCuisine.afficher(chefs);
 	}
 
 	public int getSurface() {
@@ -43,17 +43,13 @@ public class Cuisine {
 
 	public boolean ajouteMoiDansLaCuisine(Chef c) {
 		if (!this.chefs.contains(c)) {
-			ajouterPersonne(c);
+			addChef(c);
 			return true;
 		}
 		return false;
 	}
 
-	public ArrayList<Chef> copyOfChefs() {
-		return copyChefs();
-	}
-
-	private ArrayList<Chef> copyChefs() {
+	private ArrayList<Chef> copieChefs() {
 		ArrayList<Chef> c = new ArrayList<Chef>();
 		for (int i = 0; i < this.chefs.size(); i++) {
 			c.add(this.chefs.get(i));
@@ -61,7 +57,7 @@ public class Cuisine {
 		return c;
 	}
 
-	public void ajouterPersonne(Chef p) {
+	public void addChef(Chef p) {
 		if (!this.chefs.contains(p)) {
 			if (!p.isAvoir()) {
 				this.chefs.add(p);
@@ -115,5 +111,9 @@ public class Cuisine {
 			}
 		}
 		return false;
+	}
+	
+	public ArrayList<Chef> copyOfChefs() {
+		return copieChefs();
 	}
 }

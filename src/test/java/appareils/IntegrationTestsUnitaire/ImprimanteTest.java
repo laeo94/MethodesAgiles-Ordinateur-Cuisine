@@ -31,6 +31,7 @@ public class ImprimanteTest {
 
 	@Test
 	public void testAfficherOrdis() {
+		
 		assertEquals(" ordiTiti ordiTata ordiToto", maisonImprimante.afficherNomOrdinateurs());
 	}
 

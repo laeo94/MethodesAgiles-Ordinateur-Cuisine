@@ -10,15 +10,12 @@ import java.util.ArrayList;
  */
 public class Imprimante {
 	private static Imprimante instanceImp = null;
-	// variables d'instance - remplacez l'exemple qui suit par le votre
 	private String nom = "Nom inconnu";
 	private String marque = "Marque inconnue";
 	private ArrayList<Ordinateur> listOrdi;
 	private EtatImprimante etat;
 
-	/**
-	 * Constructeur d'objets de classe Imprimante
-	 */
+
 	private Imprimante(String nom, String marque) {
 		// initialisation des variables d'instance
 		this.nom = nom;
@@ -40,7 +37,7 @@ public class Imprimante {
 	}
 
 	public void changerEtat() {
-		etat = etat.etatsuivant();
+		etat = etat.etatSuivant();
 	}
 
 	public EtatImprimante getEtat() {

@@ -22,7 +22,7 @@ public class OrdinateurTest {
 	}
 
 	@Test
-	public void test() {
+	public void testAfficherNomImprimante() {
 		assertEquals("ordiTiti", monOrdinateur.changerNom("ordiTiti"));
 		monImprimante.addOrdinateur(monOrdinateur);
 		assertTrue(monImprimante.copyOrdi().contains(monOrdinateur));

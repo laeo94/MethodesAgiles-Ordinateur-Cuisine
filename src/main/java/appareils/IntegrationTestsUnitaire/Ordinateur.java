@@ -15,9 +15,6 @@ public class Ordinateur {
 	private Chef chef;
 	private String menu = "";
 
-	/**
-	 * Constructeur d'objets de classe Ordinateur
-	 */
 	public Ordinateur(String nom, String marque, Imprimante imp) {
 		// initialisation des variables d'instance
 		this.nom = nom;

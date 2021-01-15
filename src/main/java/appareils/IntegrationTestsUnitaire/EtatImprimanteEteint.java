@@ -7,7 +7,7 @@ public class EtatImprimanteEteint extends EtatImprimante {
 	}
 
 	@Override
-	public EtatImprimante etatsuivant() {
+	public EtatImprimante etatSuivant() {
 		return new EtatImprimanteAllume(imp);
 	}
 
