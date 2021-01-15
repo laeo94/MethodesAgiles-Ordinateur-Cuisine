@@ -1,6 +1,7 @@
 Feature: Recrutement
 
   @MyScenario
+  
   Scenario: En tant que Cuisine, je veux pouvoir recruter un chef quand j en ai besoin
     Given je suis une cuisine
     When je recrute un chef libre

@@ -71,8 +71,9 @@ public class CuisineTest {
 	public void testDeleteChef() {
 		c1.deleteChef(toto);
 		assertEquals(toto.getCuisine(), null);
-		assertTrue(!c1.copyOfChefs().contains(toto));
-		assertTrue(!toto.isAvoir());
+		assertEquals(false, toto.isAvoir());
+		assertEquals(false, c1.copyOfChefs().contains(toto));
+		
 	}
 
 }

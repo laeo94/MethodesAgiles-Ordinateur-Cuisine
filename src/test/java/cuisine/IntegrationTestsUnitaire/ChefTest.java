@@ -10,7 +10,6 @@ public class ChefTest {
 
 	private Chef toto;
 	private Chef titi;
-	private Chef tata;
 	private Cuisine c1;
 	private Cuisine c2;
 
@@ -46,7 +45,7 @@ public class ChefTest {
 	public void testQuitterCuisine() {
 		titi.quitterCuisine();
 		assertEquals(titi.getCuisine(), null);
-		assertTrue(!titi.isAvoir());
+		assertEquals(false, titi.isAvoir());
 	}
 
 }

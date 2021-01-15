@@ -25,5 +25,4 @@ public class ParametrerOrdinateurTest {
 		assertEquals(string, ordinateur.changerNom(string));
 		System.out.println("Modification effectuée! L'ordinateur est nommé :" + string);
 	}
-
 }

@@ -105,8 +105,8 @@ public class Imprimante {
 	}
 
 	public boolean suppOrdis(Ordinateur ordi) {
+		ordi.setImprimante(null);
 		return this.listOrdi.remove(ordi);
-
 	}
 
 }

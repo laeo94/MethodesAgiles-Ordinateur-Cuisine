@@ -13,6 +13,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class MenuDuJour {
+	
 	private Cuisine cuisine = new Cuisine(150, "Dauphine", new AffichageUnChef());
 	private Chef chef;
 	private Ordinateur ordiChef;
